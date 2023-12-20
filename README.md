@@ -24,3 +24,4 @@ This repository contains a simple JavaScript program that prompts the use to cal
 1. open index.html in your browser 
 2. Follow the on-screen instructions to calculate the marks
 3. view the generated grades
+
