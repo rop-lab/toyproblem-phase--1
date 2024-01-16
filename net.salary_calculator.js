@@ -1,11 +1,17 @@
+// FUnction to calculate net salary base on basic salary and benefits.
 function netSalaryCalculator(basic_Salary,benefits){
+    // Declaration of variables for payee rate and nhif
     let payee_rate ;
     let nhif_rate;
+    //Calculate gross salary by adding basic salary and benefits
     const gross_Salary=(basic_Salary + benefits);
+    //calculate payee, nhif deduction, and nssf deduction
     const payee=(payee_rate * gross_Salary);
     const nhif_deduction=(nhif_rate * gross_Salary);
     const nssf_deduction=(0.06 * gross_Salary);
+    //calculate net salary by subtracting deductions from gross salary
     const net_salary=(gross_Salary-nhif_deduction-payee-nssf_deduction);
+    //Determine payee rate based on gross salary range
     if (gross_Salary <24000){
         return payee_rate=0.1
     } else if (gross_Salary >24000 && gross_Salary <+32333){
@@ -17,6 +23,8 @@ function netSalaryCalculator(basic_Salary,benefits){
     } else if (gross_Salary >800000 ){
         return payee_rate=0.35
     } else {
+
+        //Determine nhif rate based on gross salary range
         if (gross_Salary <=5999){
             return nhif_rate=150
         } else if (gross_Salary>5999 && gross_Salary<=7999){
@@ -50,7 +58,9 @@ function netSalaryCalculator(basic_Salary,benefits){
         } else if (gross_Salary>99999){
             return nhif_rate=1600
         }
+        //Return the calculated net salary
         return net_salary;
     }
 }
+// Example usage of the function and logging the result
 console.log(netSalaryCalculator(70000,5000))
